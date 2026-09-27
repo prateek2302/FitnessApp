@@ -24,6 +24,7 @@ target 'FitnessApp' do
   )
 
   post_install do |installer|
+  installer.pods_project.targets.each { |t| t.build_configurations.each { |c| c.build_settings["IPHONEOS_DEPLOYMENT_TARGET"]="15.0" } }
     react_native_post_install(
       installer,
       config[:reactNativePath],
